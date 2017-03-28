@@ -4,6 +4,7 @@
 '''
 import tensorflow as tf
 import os
+import csv
 
 
 '''
@@ -24,10 +25,23 @@ SHUFFLE = True #Wen want to shuffle the images in our dataset multiple times
 '''
     CODE
 '''
+
+def getTrainingData():
+    files = []
+    with open(TRAINING_VALS, 'rt') as csvfile:
+        reader = csv.reader(csvfile)
+        for row in reader:
+            files.append(row)
+    return files[1:]#Get rid of the title
+
+
 def main():
+
     #First thing is to setup the tensor flow log session, so we can see how our network learns
+    #todo code this.
 
     #Then get the list of filenames of the pictures to train data with
+    filenames = getTrainingData()
     filenames = [name for name in os.listdir(TRAINING_IMAGES)]
 
     #Pass the list of filenames and create a queue of successive tests to run
@@ -38,6 +52,14 @@ def main():
 
     #Then read the csv_file that has the outputs we're interested in
     name,file = tf.decode_csv(TRAINING_VALS)
+
+
+
+
+
+
+
+
     print("k")
 
 

@@ -4,6 +4,9 @@ import os
 import tensorflow as tf
 import csv
 from shutil import copyfile
+from tensorflow.contrib import learn
+from tensorflow.contrib.learn.python.learn.estimators import model_fn as model_fn_lib
+tf.logging.set_verbosity(tf.logging.INFO)
 
 def main():
     '''
