@@ -1,10 +1,35 @@
 #
 import cv2
+import os
 import tensorflow as tf
+import csv
+from shutil import copyfile
 
 def main():
+    '''
+    Wanted to separate the cats from the dogs, for training of the inception network
+    :return: 
+    '''
+
+    #First thing is to get all the dog and cat pictures
+    catFiles = []
+    dogFiles = []
+    with open('./data/Y_Train.csv', 'rt') as csvfile:
+        spamreader = csv.reader(csvfile)
+        for row in spamreader:
+            if row[1]=='1':
+                dogFiles.append(row[0])
+            else:
+                catFiles.append(row[0])
+
+    #Then read the actual files and place them in the cats or dogs directory
+    catFiles = catFiles[1:]
+    dogFiles = dogFiles[1:]
+    for i in catFiles:
+        copyfile('./data/X_Train/'+i,"./data/Cats/"+i)
+    for j in dogFiles:
+        copyfile('./data/X_Train/'+i,"./data/Dogs/"+j)
     print("k")
-    testTensors()
 
 def testTensors():
     n1 = tf.constant(3.0,tf.float32)
