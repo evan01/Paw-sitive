@@ -1,4 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/
-data/
-/tensorflow-master/
+/data/X_Test/
+/data/X_Train/
+/data/SeparatedPhotos/
+/data/CNN_BOTTLENECKS/
+/data/TensorBoard_Summaries/
