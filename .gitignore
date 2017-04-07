@@ -1,6 +1,5 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/
-/tensorflow-master/
 /data/X_Test/
 /data/X_Train/
 /data/SeparatedPhotos/
